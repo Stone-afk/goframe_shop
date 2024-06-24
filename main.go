@@ -1,13 +1,15 @@
 package main
 
 import (
-	_ "demo/internal/packed"
+	_ "goframe_shop/internal/packed"
 
-	_ "demo/internal/logic"
+	_ "goframe_shop/internal/logic"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"demo/internal/cmd"
+	"goframe_shop/internal/cmd"
+
+	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
 )
 
 func main() {

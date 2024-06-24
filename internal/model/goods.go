@@ -1,8 +1,14 @@
 package model
 
 import (
-	"demo/internal/model/do"
+	"goframe_shop/internal/model/do"
 )
+
+type GoodsDeleteInput struct {
+	Id uint `json:"id"`
+}
+
+type GoodsDeleteOutput struct{}
 
 type GoodsCreateInput struct {
 	GoodsCreateUpdateBase

@@ -2,14 +2,14 @@ package cmd
 
 import (
 	"context"
-	"demo/internal/consts"
-	"demo/internal/controller/goods"
+	"goframe_shop/internal/consts"
+	"goframe_shop/internal/controller/goods"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 
-	"demo/internal/controller/hello"
+	"goframe_shop/internal/controller/hello"
 )
 
 var (

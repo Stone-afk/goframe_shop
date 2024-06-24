@@ -56,7 +56,7 @@ var goodsInfoColumns = GoodsInfoColumns{
 func NewGoodsDao() *GoodsDao {
 	return &GoodsDao{
 		group:   "default",
-		table:   "goods_info",
+		table:   "goods",
 		columns: goodsInfoColumns,
 	}
 }

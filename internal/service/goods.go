@@ -7,13 +7,15 @@ package service
 
 import (
 	"context"
-	"demo/internal/model"
+	"goframe_shop/internal/model"
 )
 
 type (
 	IGoods interface {
-		AddGoods(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error)
-		GoodsDetail(ctx context.Context, in model.GoodsGetInput) (model.GoodsGetOutput, error)
+		// Delete 删除
+		Delete(ctx context.Context, id uint) error
+		Create(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error)
+		Get(ctx context.Context, in model.GoodsGetInput) (model.GoodsGetOutput, error)
 	}
 )
 

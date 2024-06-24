@@ -1,0 +1,98 @@
+2024-06-24 17:28:43.937 [ERRO] {e81d116eafe6db17a41d131242087b76} [ 20 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods_info`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods_info' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:28:43.941 [ERRO] {e81d116eafe6db17a41d131242087b76} [  3 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods_info`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods_info' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:28:43.944 [ERRO] {e81d116eafe6db17a41d131242087b76} [  1 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods_info`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods_info' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:28:43.945 [ERRO] {e81d116eafe6db17a41d131242087b76} [  1 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods_info`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods_info' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:31:32.637 [ERRO] {88fcd7b5d6e6db176fc48201b48b0fec} [ 13 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:31:32.640 [ERRO] {88fcd7b5d6e6db176fc48201b48b0fec} [  2 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:31:32.644 [ERRO] {88fcd7b5d6e6db176fc48201b48b0fec} [  3 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:31:32.648 [ERRO] {88fcd7b5d6e6db176fc48201b48b0fec} [  3 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:55:08.459 [ERRO] {b811115b20e8db1792f90b6a7316101d} [ 20 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:55:08.462 [ERRO] {b811115b20e8db1792f90b6a7316101d} [  1 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:55:08.465 [ERRO] {b811115b20e8db1792f90b6a7316101d} [  2 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:55:08.467 [ERRO] {b811115b20e8db1792f90b6a7316101d} [  1 ms] [default] [goframe_shop] [rows:0  ] SHOW FULL COLUMNS FROM `goods`
+Error: Error 1146 (42S02): Table 'goframe_shop.goods' doesn't exist 
+Stack:
+1.  goframe_shop/internal/logic/goods.(*sGoods).Create
+    /Users/stone/go_project/my_shop/goframe_shop/internal/logic/goods/goods.go:35
+2.  goframe_shop/internal/controller/goods.ControllerV1.GoodsAddReq
+    /Users/stone/go_project/my_shop/goframe_shop/internal/controller/goods/goods_v1.go:26
+
+2024-06-24 17:56:21.077 [DEBU] {403f804331e8db1793f90b6a03787367} [ 22 ms] [default] [goframe_shop] [rows:15 ] SHOW FULL COLUMNS FROM `goods`
+2024-06-24 17:56:21.090 [DEBU] {403f804331e8db1793f90b6a03787367} [ 13 ms] [default] [goframe_shop] [rows:1  ] INSERT INTO `goods`(`pic_url`,`name`,`price`,`level1_category_id`,`level2_category_id`,`level3_category_id`,`brand`,`stock`,`sale`,`tags`,`detail_info`,`created_at`,`updated_at`) VALUES('图片','required#名称必传',0,0,0,0,'品牌名称最大30个字',0,0,'标签','商品详情','2024-06-24 17:56:21','2024-06-24 17:56:21') 

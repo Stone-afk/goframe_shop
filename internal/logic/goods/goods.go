@@ -2,31 +2,16 @@ package goods
 
 import (
 	"context"
-	"demo/internal/dao"
-	"demo/internal/model"
+	"goframe_shop/internal/dao"
+	"goframe_shop/internal/model"
+	"goframe_shop/internal/service"
+
+	"github.com/gogf/gf/v2/frame/g"
 )
 
-//type GoodLogic struct {
-//	repo *dao.GoodsRepo
-//}
-//
-//func New(repo *dao.GoodsRepo) *GoodLogic {
-//	return &GoodLogic{
-//		repo: repo,
-//	}
-//}
-//
-//func (l *GoodLogic) AddGoods(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error) {
-//	lastInsertID, err := l.repo.Create(ctx, in)
-//	if err != nil {
-//		return out, err
-//	}
-//	return model.GoodsCreateOutput{Id: uint(lastInsertID)}, err
-//}
-//
-//func (l *GoodLogic) GoodsDetail(ctx context.Context, in model.GoodsGetInput) (model.GoodsGetOutput, error) {
-//	return l.repo.Get(ctx, in)
-//}
+func init() {
+	service.RegisterGoods(New())
+}
 
 type sGoods struct {
 }
@@ -35,7 +20,18 @@ func New() *sGoods {
 	return &sGoods{}
 }
 
-func (s *sGoods) AddGoods(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error) {
+// Delete 删除
+func (s *sGoods) Delete(ctx context.Context, id uint) error {
+	_, err := dao.GoodsRepo.Ctx(ctx).Where(g.Map{
+		dao.GoodsRepo.Columns().Id: id,
+	}).Delete()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *sGoods) Create(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error) {
 	lastInsertID, err := dao.GoodsRepo.Ctx(ctx).Data(in).InsertAndGetId()
 	if err != nil {
 		return out, err
@@ -43,7 +39,7 @@ func (s *sGoods) AddGoods(ctx context.Context, in model.GoodsCreateInput) (out m
 	return model.GoodsCreateOutput{Id: uint(lastInsertID)}, err
 }
 
-func (s *sGoods) GoodsDetail(ctx context.Context, in model.GoodsGetInput) (model.GoodsGetOutput, error) {
+func (s *sGoods) Get(ctx context.Context, in model.GoodsGetInput) (model.GoodsGetOutput, error) {
 	var out model.GoodsGetOutput
 	err := dao.GoodsRepo.Ctx(ctx).WithAll().WherePri(in.Id).Scan(&out)
 	if err != nil {

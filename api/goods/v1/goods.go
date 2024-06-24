@@ -2,6 +2,13 @@ package v1
 
 import "github.com/gogf/gf/v2/frame/g"
 
+type GoodsDeleteReq struct {
+	g.Meta `path:"/goods/delete" tags:"商品" method:"delete" summary:"删除商品"`
+	Id     uint `v:"min:1#请选择需要删除的商品" dc:"商品id"`
+}
+
+type GoodsDeleteRes struct{}
+
 type GoodsAddReq struct {
 	g.Meta `path:"/goods/add" tags:"商品" method:"post" summary:"添加商品"`
 	GoodsCommonAddUpdate
