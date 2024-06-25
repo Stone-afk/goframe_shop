@@ -2,7 +2,27 @@ package model
 
 import (
 	"goframe_shop/internal/model/do"
+	"goframe_shop/internal/model/entity"
 )
+
+// GoodsGetListInput 获取内容列表
+type GoodsGetListInput struct {
+	Page int // 分页号码
+	Size int // 分页数量，最大50
+	Sort int // 排序类型(0:最新, 默认。1:活跃, 2:热度)
+}
+
+// GoodsGetListOutput 查询列表结果
+type GoodsGetListOutput struct {
+	List  []GoodsGetListOutputItem `json:"list" description:"列表"`
+	Page  int                      `json:"page" description:"分页码"`
+	Size  int                      `json:"size" description:"分页数量"`
+	Total int                      `json:"total" description:"数据总数"`
+}
+
+type GoodsGetListOutputItem struct {
+	entity.Goods
+}
 
 // GoodsUpdateInput 修改内容
 type GoodsUpdateInput struct {

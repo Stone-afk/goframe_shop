@@ -12,6 +12,8 @@ import (
 
 type (
 	IGoods interface {
+		// List 查询分类列表
+		List(ctx context.Context, in model.GoodsGetListInput) (*model.GoodsGetListOutput, error)
 		// Update 修改
 		Update(ctx context.Context, in model.GoodsUpdateInput) error
 		// Delete 删除
