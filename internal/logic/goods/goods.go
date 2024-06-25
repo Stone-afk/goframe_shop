@@ -20,6 +20,17 @@ func New() *sGoods {
 	return &sGoods{}
 }
 
+// Update 修改
+func (s *sGoods) Update(ctx context.Context, in model.GoodsUpdateInput) error {
+	_, err := dao.GoodsRepo.
+		Ctx(ctx).
+		Data(in).
+		FieldsEx(dao.GoodsRepo.Columns().Id).
+		Where(dao.GoodsRepo.Columns().Id, in.Id).
+		Update()
+	return err
+}
+
 // Delete 删除
 func (s *sGoods) Delete(ctx context.Context, id uint) error {
 	_, err := dao.GoodsRepo.Ctx(ctx).Where(g.Map{

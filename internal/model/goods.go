@@ -4,6 +4,12 @@ import (
 	"goframe_shop/internal/model/do"
 )
 
+// GoodsUpdateInput 修改内容
+type GoodsUpdateInput struct {
+	GoodsCreateUpdateBase
+	Id uint `json:"id"`
+}
+
 type GoodsDeleteInput struct {
 	Id uint `json:"id"`
 }

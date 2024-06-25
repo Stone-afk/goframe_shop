@@ -12,6 +12,8 @@ import (
 
 type (
 	IGoods interface {
+		// Update 修改
+		Update(ctx context.Context, in model.GoodsUpdateInput) error
 		// Delete 删除
 		Delete(ctx context.Context, id uint) error
 		Create(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error)

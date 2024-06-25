@@ -12,6 +12,16 @@ import (
 
 type ControllerV1 struct{}
 
+func (c ControllerV1) GoodsUpdateReq(ctx context.Context, req *v1.GoodsUpdateReq) (*v1.GoodsUpdateRes, error) {
+	in := model.GoodsUpdateInput{}
+	err := gconv.Struct(req, &in)
+	if err != nil {
+		return nil, err
+	}
+	err = service.Goods().Update(ctx, in)
+	return &v1.GoodsUpdateRes{Id: req.Id}, nil
+}
+
 func (c ControllerV1) GoodsDeleteReq(ctx context.Context, req *v1.GoodsDeleteReq) (*v1.GoodsDeleteRes, error) {
 	err := service.Goods().Delete(ctx, req.Id)
 	return &v1.GoodsDeleteRes{}, err

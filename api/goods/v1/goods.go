@@ -1,6 +1,32 @@
 package v1
 
-import "github.com/gogf/gf/v2/frame/g"
+import (
+	"goframe_shop/api"
+
+	"github.com/gogf/gf/v2/frame/g"
+)
+
+type GoodsGetListCommonReq struct {
+	g.Meta `path:"/goods/list" method:"get" tags:"商品" summary:"商品列表接口"`
+	api.CommonPaginationReq
+}
+
+type GoodsGetListCommonRes struct {
+	List  interface{} `json:"list" description:"列表"`
+	Page  int         `json:"page" description:"分页码"`
+	Size  int         `json:"size" description:"分页数量"`
+	Total int         `json:"total" description:"数据总数"`
+}
+
+type GoodsUpdateReq struct {
+	g.Meta `path:"/goods/update/" method:"post" tags:"商品" summary:"修改商品接口"`
+	Id     uint `json:"id"      v:"min:1#请选择需要修改的商品" dc:"商品Id"`
+	GoodsCommonAddUpdate
+}
+
+type GoodsUpdateRes struct {
+	Id uint `json:"id"`
+}
 
 type GoodsDeleteReq struct {
 	g.Meta `path:"/goods/delete" tags:"商品" method:"delete" summary:"删除商品"`
