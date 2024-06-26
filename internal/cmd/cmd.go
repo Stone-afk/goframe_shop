@@ -21,7 +21,7 @@ var (
 			s := g.Server()
 
 			//管理后台路由组
-			s.Group("/backend", func(group *ghttp.RouterGroup) {
+			s.Group("/api", func(group *ghttp.RouterGroup) {
 				group.Group("/", func(group *ghttp.RouterGroup) {
 					group.Middleware(ghttp.MiddlewareHandlerResponse)
 					group.Bind(
