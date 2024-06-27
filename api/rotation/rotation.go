@@ -1,4 +1,4 @@
-package v1
+package rotation
 
 import (
 	"context"

@@ -4,6 +4,8 @@ import (
 	"context"
 	"goframe_shop/internal/consts"
 	"goframe_shop/internal/controller/goods"
+	"goframe_shop/internal/controller/rotation"
+	"goframe_shop/internal/controller/user"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
@@ -26,7 +28,9 @@ var (
 					group.Middleware(ghttp.MiddlewareHandlerResponse)
 					group.Bind(
 						hello.NewV1(),
-						goods.NewV1(), //商品管理
+						goods.NewV1(),
+						user.NewV1(),
+						rotation.NewV1(),
 					)
 				})
 			})
