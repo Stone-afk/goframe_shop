@@ -5,8 +5,7 @@ import (
 	"github.com/gogf/gf/v2/os/gtime"
 )
 
-// UserInfo is the golang structure of table user_info for DAO operations like Where/Data.
-type UserInfo struct {
+type User struct {
 	g.Meta       `orm:"table:user_info, do:true"`
 	Id           interface{} //
 	Name         interface{} // 用户名

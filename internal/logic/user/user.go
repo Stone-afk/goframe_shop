@@ -41,7 +41,7 @@ func (s *sUser) Register(ctx context.Context, in model.RegisterInput) (out model
 // UpdatePassword 修改密码
 func (*sUser) UpdatePassword(ctx context.Context, in model.UpdatePasswordInput) (out model.UpdatePasswordOutput, err error) {
 	//	验证密保问题
-	userInfo := do.UserInfo{}
+	userInfo := do.User{}
 	userId := gconv.Uint(ctx.Value(consts.CtxUserId))
 	err = dao.UserRepo.Ctx(ctx).WherePri(userId).Scan(&userInfo)
 	if err != nil {

@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"goframe_shop/internal/model/entity"
 	"time"
 
 	"github.com/gogf/gf/v2/frame/g"
@@ -22,12 +23,12 @@ type LoginDoRes struct {
 
 // LoginRes for gtoken
 type LoginRes struct {
-	Type     string `json:"type"`
-	Token    string `json:"token"`
-	ExpireIn int    `json:"expire_in"`
-	IsAdmin  int    `json:"is_admin"` //是否超管
-	RoleIds  string `json:"role_ids"` //角色
-	//Permissions []entity.PermissionInfo `json:"permissions"` //权限列表
+	Type        string              `json:"type"`
+	Token       string              `json:"token"`
+	ExpireIn    int                 `json:"expire_in"`
+	IsAdmin     int                 `json:"is_admin"`    //是否超管
+	RoleIds     string              `json:"role_ids"`    //角色
+	Permissions []entity.Permission `json:"permissions"` //权限列表
 }
 
 type RefreshTokenReq struct {

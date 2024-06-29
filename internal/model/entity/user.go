@@ -2,8 +2,8 @@ package entity
 
 import "github.com/gogf/gf/v2/os/gtime"
 
-// UserInfo is the golang structure for table user_info.
-type UserInfo struct {
+// User is the golang structure for table user_info.
+type User struct {
 	Id           int         `json:"id"           description:""`
 	Name         string      `json:"name"         description:"用户名"`
 	Avatar       string      `json:"avatar"       description:"头像"`
