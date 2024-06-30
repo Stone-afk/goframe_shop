@@ -5,7 +5,7 @@
 package hello
 
 import (
-	"goframe_shop/api/hello"
+	"goframe_shop/api/backend/hello"
 )
 
 type ControllerV1 struct{}

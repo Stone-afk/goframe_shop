@@ -2,8 +2,8 @@ package admin
 
 import (
 	"context"
-	"goframe_shop/api/admin"
-	v1 "goframe_shop/api/admin/v1"
+	"goframe_shop/api/backend/admin"
+	v1 "goframe_shop/api/backend/admin/v1"
 	"goframe_shop/internal/consts"
 	"goframe_shop/internal/model"
 	"goframe_shop/internal/service"

@@ -2,8 +2,8 @@ package user
 
 import (
 	"context"
-	"goframe_shop/api/user"
-	v1 "goframe_shop/api/user/v1"
+	"goframe_shop/api/frontend/user"
+	v1 "goframe_shop/api/frontend/user/v1"
 	"goframe_shop/internal/consts"
 	"goframe_shop/internal/model"
 	"goframe_shop/internal/service"

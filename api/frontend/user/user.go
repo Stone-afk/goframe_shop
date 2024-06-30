@@ -2,7 +2,7 @@ package user
 
 import (
 	"context"
-	v1 "goframe_shop/api/user/v1"
+	v1 "goframe_shop/api/frontend/user/v1"
 )
 
 type IUserV1 interface {

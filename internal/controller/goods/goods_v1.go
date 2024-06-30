@@ -2,8 +2,8 @@ package goods
 
 import (
 	"context"
-	"goframe_shop/api/goods"
-	v1 "goframe_shop/api/goods/v1"
+	"goframe_shop/api/backend/goods"
+	v1 "goframe_shop/api/backend/goods/v1"
 	"goframe_shop/internal/model"
 	"goframe_shop/internal/service"
 

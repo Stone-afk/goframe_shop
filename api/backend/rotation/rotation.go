@@ -2,7 +2,7 @@ package rotation
 
 import (
 	"context"
-	v1 "goframe_shop/api/rotation/v1"
+	v1 "goframe_shop/api/backend/rotation/v1"
 )
 
 type IRotationV1 interface {

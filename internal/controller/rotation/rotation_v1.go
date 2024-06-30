@@ -2,8 +2,8 @@ package rotation
 
 import (
 	"context"
-	"goframe_shop/api/rotation"
-	v1 "goframe_shop/api/rotation/v1"
+	"goframe_shop/api/backend/rotation"
+	v1 "goframe_shop/api/backend/rotation/v1"
 	"goframe_shop/internal/model"
 	"goframe_shop/internal/service"
 )

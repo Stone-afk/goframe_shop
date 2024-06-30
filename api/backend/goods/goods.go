@@ -2,7 +2,7 @@ package goods
 
 import (
 	"context"
-	v1 "goframe_shop/api/goods/v1"
+	v1 "goframe_shop/api/backend/goods/v1"
 )
 
 type IGoodsV1 interface {
