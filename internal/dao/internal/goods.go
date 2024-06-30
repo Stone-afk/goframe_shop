@@ -1,3 +1,7 @@
+// ==========================================================================
+// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT.
+// ==========================================================================
+
 package internal
 
 import (
@@ -7,14 +11,15 @@ import (
 	"github.com/gogf/gf/v2/frame/g"
 )
 
+// GoodsDao is the data access object for table goods.
 type GoodsDao struct {
-	table   string           // table is the underlying table name of the DAO.
-	group   string           // group is the database configuration group name of current DAO.
-	columns GoodsInfoColumns // columns contains all the column names of Table for convenient usage.
+	table   string       // table is the underlying table name of the DAO.
+	group   string       // group is the database configuration group name of current DAO.
+	columns GoodsColumns // columns contains all the column names of Table for convenient usage.
 }
 
-// GoodsInfoColumns defines and stores column names for table goods_info.
-type GoodsInfoColumns struct {
+// GoodsColumns defines and stores column names for table goods.
+type GoodsColumns struct {
 	Id               string //
 	PicUrl           string // 图片
 	Name             string // 商品名称
@@ -23,7 +28,6 @@ type GoodsInfoColumns struct {
 	Level2CategoryId string // 2级分类id
 	Level3CategoryId string // 3级分类id
 	Brand            string // 品牌
-	CouponId         string // 优惠券id
 	Stock            string // 库存
 	Sale             string // 销量
 	Tags             string // 标签
@@ -33,8 +37,8 @@ type GoodsInfoColumns struct {
 	DeletedAt        string //
 }
 
-// goodsInfoColumns holds the columns for table goods_info.
-var goodsInfoColumns = GoodsInfoColumns{
+// goodsColumns holds the columns for table goods.
+var goodsColumns = GoodsColumns{
 	Id:               "id",
 	PicUrl:           "pic_url",
 	Name:             "name",
@@ -43,7 +47,6 @@ var goodsInfoColumns = GoodsInfoColumns{
 	Level2CategoryId: "level2_category_id",
 	Level3CategoryId: "level3_category_id",
 	Brand:            "brand",
-	CouponId:         "coupon_id",
 	Stock:            "stock",
 	Sale:             "sale",
 	Tags:             "tags",
@@ -53,11 +56,12 @@ var goodsInfoColumns = GoodsInfoColumns{
 	DeletedAt:        "deleted_at",
 }
 
+// NewGoodsDao creates and returns a new DAO object for table data access.
 func NewGoodsDao() *GoodsDao {
 	return &GoodsDao{
 		group:   "default",
 		table:   "goods",
-		columns: goodsInfoColumns,
+		columns: goodsColumns,
 	}
 }
 
@@ -72,7 +76,7 @@ func (dao *GoodsDao) Table() string {
 }
 
 // Columns returns all column names of current dao.
-func (dao *GoodsDao) Columns() GoodsInfoColumns {
+func (dao *GoodsDao) Columns() GoodsColumns {
 	return dao.columns
 }
 

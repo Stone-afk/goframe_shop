@@ -1,3 +1,7 @@
+// =================================================================================
+// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT.
+// =================================================================================
+
 package do
 
 import (
@@ -5,8 +9,9 @@ import (
 	"github.com/gogf/gf/v2/os/gtime"
 )
 
+// Goods is the golang structure of table goods for DAO operations like Where/Data.
 type Goods struct {
-	g.Meta           `orm:"table:goods_info, do:true"`
+	g.Meta           `orm:"table:goods, do:true"`
 	Id               interface{} //
 	PicUrl           interface{} // 图片
 	Name             interface{} // 商品名称
@@ -15,12 +20,11 @@ type Goods struct {
 	Level2CategoryId interface{} // 2级分类id
 	Level3CategoryId interface{} // 3级分类id
 	Brand            interface{} // 品牌
-	//CouponId         interface{} // 优惠券id
-	Stock      interface{} // 库存
-	Sale       interface{} // 销量
-	Tags       interface{} // 标签
-	DetailInfo interface{} // 商品详情
-	CreatedAt  *gtime.Time //
-	UpdatedAt  *gtime.Time //
-	DeletedAt  *gtime.Time //
+	Stock            interface{} // 库存
+	Sale             interface{} // 销量
+	Tags             interface{} // 标签
+	DetailInfo       interface{} // 商品详情
+	CreatedAt        *gtime.Time //
+	UpdatedAt        *gtime.Time //
+	DeletedAt        *gtime.Time //
 }

@@ -1,0 +1,21 @@
+CREATE TABLE `order_goods` (
+                            `id` INT AUTO_INCREMENT PRIMARY KEY COMMENT '商品维度的订单表',
+                            `order_id` INT NOT NULL COMMENT '关联的主订单表',
+                            `goods_id` INT NOT NULL COMMENT '商品id',
+                            `goods_options_id` INT NOT NULL COMMENT '商品规格id',
+                            `count` INT NOT NULL COMMENT '商品数量',
+                            `pay_type` INT NOT NULL COMMENT '支付方式 1微信 2支付宝 3云闪付',
+                            `remark` TEXT COMMENT '备注',
+                            `status` INT NOT NULL COMMENT '订单状态 0待支付 1已支付 3已确认收货',
+                            `price` INT NOT NULL COMMENT '订单金额 单位分',
+                            `coupon_price` INT NOT NULL COMMENT '优惠券金额 单位分',
+                            `actual_price` INT NOT NULL COMMENT '实际支付金额 单位分',
+                            `pay_at` DATETIME DEFAULT NULL COMMENT '支付时间',
+                            `created_at` DATETIME DEFAULT NULL COMMENT '创建时间',
+                            `updated_at` DATETIME DEFAULT NULL COMMENT '更新时间',
+                            INDEX idx_order_id (order_id),
+                            INDEX idx_goods_id (goods_id),
+                            INDEX idx_goods_options_id (goods_options_id),
+                            INDEX idx_pay_type (pay_type),
+                            INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品维度的订单表';

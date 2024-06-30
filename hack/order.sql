@@ -1,0 +1,20 @@
+CREATE TABLE `orders` (
+                        `id` INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ID',
+                        `number` VARCHAR(255) NOT NULL COMMENT '订单编号',
+                        `user_id` INT NOT NULL COMMENT '用户id',
+                        `pay_type` INT NOT NULL COMMENT '支付方式 1微信 2支付宝 3云闪付',
+                        `created_at` DATETIME DEFAULT NULL COMMENT '创建时间',
+                        `updated_at` DATETIME DEFAULT NULL COMMENT '更新时间',
+                        `remark` TEXT COMMENT '备注',
+                        `pay_at` DATETIME DEFAULT NULL COMMENT '支付时间',
+                        `status` INT NOT NULL COMMENT '订单状态： 1待支付 2已支付待发货 3已发货 4已收货待评价',
+                        `consignee_name` VARCHAR(255) NOT NULL COMMENT '收货人姓名',
+                        `consignee_phone` VARCHAR(20) NOT NULL COMMENT '收货人手机号',
+                        `consignee_address` TEXT NOT NULL COMMENT '收货人详细地址',
+                        `price` INT NOT NULL COMMENT '订单金额 单位分',
+                        `coupon_price` INT NOT NULL COMMENT '优惠券金额 单位分',
+                        `actual_price` INT NOT NULL COMMENT '实际支付金额 单位分',
+                        INDEX idx_user_id (user_id),
+                        INDEX idx_pay_type (pay_type),
+                        INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单表';
