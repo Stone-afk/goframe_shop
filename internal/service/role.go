@@ -5,4 +5,33 @@
 
 package service
 
-type ()
+import (
+	"context"
+	"goframe_shop/internal/model"
+)
+
+type (
+	IRole interface {
+		Create(ctx context.Context, in model.RoleCreateInput) (model.RoleCreateOutput, error)
+		Delete(ctx context.Context, id uint) error
+		// GetList 查询内容列表
+		GetList(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error)
+		AddPermission(ctx context.Context, in model.RoleAddPermissionInput) (model.RoleAddPermissionOutput, error)
+		DeletePermission(ctx context.Context, in model.RoleDeletePermissionInput) error
+	}
+)
+
+var (
+	localRole IRole
+)
+
+func Role() IRole {
+	if localRole == nil {
+		panic("implement not found for interface IRole, forgot register?")
+	}
+	return localRole
+}
+
+func RegisterRole(i IRole) {
+	localRole = i
+}
