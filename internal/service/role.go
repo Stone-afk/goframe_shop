@@ -14,8 +14,9 @@ type (
 	IRole interface {
 		Create(ctx context.Context, in model.RoleCreateInput) (model.RoleCreateOutput, error)
 		Delete(ctx context.Context, id uint) error
-		// GetList 查询内容列表
-		GetList(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error)
+		Update(ctx context.Context, in model.RoleUpdateInput) error
+		// List 查询内容列表
+		List(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error)
 		AddPermission(ctx context.Context, in model.RoleAddPermissionInput) (model.RoleAddPermissionOutput, error)
 		DeletePermission(ctx context.Context, in model.RoleDeletePermissionInput) error
 	}

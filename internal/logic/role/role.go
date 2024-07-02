@@ -36,8 +36,18 @@ func (s *sRole) Delete(ctx context.Context, id uint) error {
 	return err
 }
 
-// GetList 查询内容列表
-func (s *sRole) GetList(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error) {
+func (s *sRole) Update(ctx context.Context, in model.RoleUpdateInput) error {
+	_, err := dao.RoleRepo.
+		Ctx(ctx).
+		Data(in).
+		FieldsEx(dao.RoleRepo.Columns().Id).
+		Where(dao.RoleRepo.Columns().Id, in.Id).
+		Update()
+	return err
+}
+
+// List 查询内容列表
+func (s *sRole) List(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error) {
 	var (
 		m = dao.RoleRepo.Ctx(ctx)
 	)
