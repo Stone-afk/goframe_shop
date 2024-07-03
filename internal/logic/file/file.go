@@ -11,16 +11,13 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-ini/ini"
-	"github.com/qiniu/go-sdk/v7/auth/qbox"
-	"github.com/qiniu/go-sdk/v7/storage"
-	"github.com/sirupsen/logrus"
-
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gfile"
 	"github.com/gogf/gf/v2/os/gtime"
 	"github.com/gogf/gf/v2/util/gconv"
+	"github.com/qiniu/go-sdk/v7/auth/qbox"
+	"github.com/qiniu/go-sdk/v7/storage"
 )
 
 type QNYServer struct {
@@ -95,10 +92,7 @@ func (s *sFile) Upload(ctx context.Context, in model.FileUploadInput) (out *mode
 }
 
 func (s *sFile) UploadCould(ctx context.Context, in model.FileUploadInput) (out *model.FileUploadOutput, err error) {
-	qNYServer, err := LoadQiniu()
-	if err != nil {
-		return nil, err
-	}
+	qNYServer := LoadQiniuCfg(ctx)
 
 	uploadPath := g.Cfg().MustGet(ctx, "upload.path").String()
 	if uploadPath == "" {
@@ -110,11 +104,13 @@ func (s *sFile) UploadCould(ctx context.Context, in model.FileUploadInput) (out 
 	//	定义年月日 Ymd
 	dateDirName := gtime.Now().Format("Ymd")
 	//gfile.Join 用"/"拼接
-	fileName, err := in.File.Save(gfile.Join(uploadPath, dateDirName), in.RandomName)
+	dirPath := gfile.Join(uploadPath, dateDirName)
+	fileName, err := in.File.Save(dirPath, in.RandomName)
 	if err != nil {
 		return nil, err
 	}
-
+	//	定义本地文件路径
+	localFile := dirPath + fileName
 	putPolicy := storage.PutPolicy{
 		Scope: qNYServer.Bucket,
 	}
@@ -125,22 +121,36 @@ func (s *sFile) UploadCould(ctx context.Context, in model.FileUploadInput) (out 
 
 	// 设置上传配置
 	// 构建表单上传的对象
+	// 根据自己需求去灵活配置
 	formUploader := storage.NewFormUploader(&storage.Config{
 		Region:        selectZone(qNYServer.Zone),
-		UseHTTPS:      false,
+		UseHTTPS:      true,
 		UseCdnDomains: false,
 	})
+	//上传结果的结构体
 	ret := storage.PutRet{}
-
-	putExtra := storage.PutExtra{}
-	err = formUploader.PutFile(ctx, &ret, upToken, in.File.Filename, fileName, &putExtra)
+	//可选配置
+	putExtra := storage.PutExtra{
+		Params: map[string]string{},
+	}
+	//七牛云表单上传
+	key := fileName
+	err = formUploader.PutFile(ctx, &ret, upToken, key, localFile, &putExtra)
+	g.Dump(err)
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println(ret.Key, ret.Hash, ret.PersistentID)
+	//删除本地临时文件
+	_ = os.RemoveAll(localFile)
+	//if err != nil {
+	//	return nil, err
+	//}
+	// 返回数据
 	url := qNYServer.Domain + ret.Key
 	return &model.FileUploadOutput{
 		Name: in.Name,
-		Src:  url,
+		Src:  qNYServer.Domain,
 		Url:  url,
 	}, nil
 }
@@ -160,22 +170,12 @@ func selectZone(Zone int) *storage.Zone {
 	}
 }
 
-func LoadQiniu() (*QNYServer, error) {
-	wd, _ := os.Getwd()
-	// 输出目录，看看路径对不对
-	fmt.Println("工作目录: " + wd)
-	cfg, err := ini.Load(wd + "/hack/could.ini") //读取配置文件
-	if err != nil {
-		logrus.Error("load config.ini error!,err:", err) //日志中打印错误信息
-		return nil, err
-	}
-
-	zone, _ := cfg.Section("qiniuyun").Key("Zone").Int()
+func LoadQiniuCfg(ctx context.Context) *QNYServer {
 	return &QNYServer{
-		Zone:      zone,
-		Bucket:    cfg.Section("qiniuyun").Key("Bucket").String(),
-		AccessKey: cfg.Section("qiniuyun").Key("AccessKey").String(),
-		SecretKey: cfg.Section("qiniuyun").Key("SecretKey").String(),
-		Domain:    cfg.Section("qiniuyun").Key("Domain").String(),
-	}, nil
+		Zone:      g.Cfg().MustGet(ctx, "qiniuyun.zone").Int(),
+		Bucket:    g.Cfg().MustGet(ctx, "qiniuyun.bucket").String(),
+		AccessKey: g.Cfg().MustGet(ctx, "qiniuyun.accessKey").String(),
+		SecretKey: g.Cfg().MustGet(ctx, "qiniuyun.secretKey").String(),
+		Domain:    g.Cfg().MustGet(ctx, "qiniuyun.domain").String(),
+	}
 }
